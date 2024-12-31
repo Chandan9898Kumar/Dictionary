@@ -1,0 +1,65 @@
+/* @font-face {
+  font-family: "Inter-bold";
+  src: url(../FontFiles/Inter-Bold.ttf) format('truetype')
+}
+@font-face {
+  font-family: "Inconsolata";
+  src: url(../FontFiles/Inconsolata-VariableFont_wdth\wght.ttf) format('truetype')
+}
+@font-face {
+  font-family: "Inter";
+  src: url(../FontFiles/Inter-VariableFont_slnt\wght.ttf) format('truetype')
+}
+@font-face {
+  font-family: "Lora";
+  src: url(../FontFiles/Lora-VariableFont_wght.ttf) format('truetype')
+} */
+
+:root {
+  --color-black: #2d2d2d;
+  --color-white: white;
+  --box-shadow-dark: #a445ed;
+  --box-shadow-light: rgba(0, 0, 0, 0.1);
+  --font-inter: "Inter";
+  --font-lora: "Lora";
+  --font-Inconsolata: "Inconsolata";
+  --light-line: #e9e9e9;
+  --dark-line: #3a3a3a;
+  --loading-light: rgb(202, 202, 202);
+  --loading-dark: rgb(70, 29, 71);
+  --close: 50;
+  --far: 10;
+}
+
+body {
+  transition: background-color 0.5s linear;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  margin: 0px;
+}
+
+ul li {
+  font-family: var(--font-choosen);
+  margin-bottom: 14px;
+  line-height: 25px;
+  font-size: 18px;
+  color: var(--text-color);
+  font-weight: 400;
+  transition: font-size 0.4s linear;
+}
+
+li::marker {
+  color: #8f19e8;
+}
+
+@media (max-width: 800px) {
+  .app {
+    width: 90%;
+  }
+}
+
+@media (max-width: 535px) {
+  ul li {
+    font-size: 15px;
+  }
+}
