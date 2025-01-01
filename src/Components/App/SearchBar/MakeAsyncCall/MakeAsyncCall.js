@@ -21,3 +21,7 @@ export default function MakeAsyncCall(word) {
       });
   };
 }
+
+// The MakeAsyncCall function is designed to return a function that can be executed later with dispatch.
+// The useEffect hook is correctly set up to call MakeAsyncCall and pass the result to dispatch, which is how Redux Thunk is intended to work.
+// You don't need to call the returned function manually; Redux Thunk handles that for you when you dispatch the function.

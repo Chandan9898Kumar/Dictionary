@@ -9,12 +9,22 @@ const SearchBar = () => {
   const searchBar = useRef();
   const dispatch = useDispatch();
 
+  /**
+   * The handleChange function updates the search bar input value and displays an invalid message if
+   * needed.
+   * @param event - The `event` parameter in the `handleChange` function is an object that represents the
+   * event that occurred, such as a change in the input value of a form element. It contains information
+   * about the event, such as the target element that triggered the event (in this case, the input
+   * element), the
+   */
   const handleChange = (event) => {
     searchBar.current.setCustomValidity("");
     invalidMessage.current.style.display = "";
     setWord(event.target.value);
   };
 
+  /* This `useEffect` hook in the `SearchBar` component is responsible for listening to keyboard events
+and triggering an action when the Enter key is pressed. Here's a breakdown of what it does: */
   useEffect(() => {
     const keyboardPress = (event) => {
       const keyPressed = event.key;
@@ -23,7 +33,7 @@ const SearchBar = () => {
       }
 
       if (word.trim()) {
-        dispatch(MakeAsyncCall(word));
+        dispatch(MakeAsyncCall(word)); // using Thunk middleware for api calls
       } else {
         searchBar.current.setCustomValidity("error");
         invalidMessage.current.style.display = "block";
