@@ -1,17 +1,15 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import "./styles.css";
+
+const NavigationBar = lazy(() => import("./NavigationBar"));
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Dictionary
-        </a>
-      </header>
-    </div>
+    <Suspense fallback="Loading ...">
+      <div className="App">
+        <NavigationBar />
+      </div>
+    </Suspense>
   );
 }
 

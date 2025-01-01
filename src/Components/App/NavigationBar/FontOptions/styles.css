@@ -1,0 +1,84 @@
+
+
+.fontOptionsButton{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    width: 120px;
+    height: 24px;
+    border: none;
+    background-color: transparent;
+    padding: 0px;
+}
+
+
+.fontChoosen{
+    white-space: nowrap;
+    font-family: var(--font-choosen);
+    color: var(--text-color);
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: right;
+    pointer-events: none;
+}
+
+#choosen{
+    font-weight: 600;
+}
+
+.arrowDown{
+    width: 12px;
+    height: 6px;
+    pointer-events: none;
+}
+
+
+.popup{
+    z-index: var(--close);
+    background-color: var(--bg-color);
+    position: absolute;
+    top: 40px;
+    left: -90px;
+    width: 183px;
+    height: 152px;
+    border-radius: 16px;
+    box-shadow: 0px 5px 30px var(--box-shadow);
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.popup_content{
+    color: var(--text-color);
+    background-color: var();
+    margin-left: 20px;
+    width: 90px;
+    height: 104px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.popup p{
+    font-family: var(--font-choosen);
+    margin: 0px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.popup p:hover{
+    color: #A445ED;
+}
+
+@media(max-width: 535px){
+    .fontChoosen, .popup_content{
+        font-size: 14px
+    }
+    .popup{
+        left: -50px;
+    }
+}
