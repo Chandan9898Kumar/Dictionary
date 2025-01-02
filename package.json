@@ -23,6 +23,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
+    "winBuild": "set \"GENERATE_SOURCEMAP=false\" && webpack --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

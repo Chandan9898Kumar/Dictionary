@@ -4,16 +4,20 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const isProd = process.env.NODE_ENV !== "production";
 
 module.exports = {
-  mode: process.env.NODE_ENV === "production" ? "production" : "development",
+  mode: process.env.NODE_ENV,
 
-  entry: {
-    bundle: path.resolve(__dirname, "./src/index.js"),
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
   },
+
+  entry: "./src/index.js",
 
   devtool: isProd ? "eval-cheap-module-source-map" : "source-map",
 
   output: {
-    path: path.resolve(__dirname, "/build"),
+    path: path.join(__dirname, "/build"),
     publicPath: "/",
     pathinfo: true,
     filename: process.env.NODE_ENV === "production" ? "[name].[chunkhash].js" : "[name].[fullhash].js",
@@ -65,7 +69,7 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
     ],
   },
