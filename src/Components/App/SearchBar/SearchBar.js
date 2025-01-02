@@ -8,8 +8,7 @@ const SearchBar = () => {
   const invalidMessage = useRef();
   const searchBar = useRef();
   const dispatch = useDispatch();
-  const selector = useSelector((state) => state.word);
-
+  
   /**
    * The handleChange function updates the search bar input value and displays an invalid message if
    * needed.

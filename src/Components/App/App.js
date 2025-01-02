@@ -4,15 +4,16 @@ import Store from "./Store";
 import { Provider } from "react-redux";
 const NavigationBar = lazy(() => import("./NavigationBar"));
 const SearchBar = lazy(() => import("./SearchBar"));
+const Container = lazy(() => import("./Container"));
 
 function App() {
   return (
     <Suspense fallback="Loading ...">
       <Provider store={Store}>
-        <div className="App">
+        <Container className="app">
           <NavigationBar />
           <SearchBar />
-        </div>
+        </Container>
       </Provider>
     </Suspense>
   );

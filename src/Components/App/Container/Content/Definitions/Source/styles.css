@@ -1,0 +1,44 @@
+.source{
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    margin: 19px 0 124px 0;
+}
+
+.source_Link{
+    display: inline-block;
+    font-family: var(--font-choosen);
+    color: var(--text-color);
+    align-self: center;
+    font-size: 14px;
+}
+
+.source_Title{
+    font-family: var(--font-choosen);
+    font-size: 14px;
+    margin: 0px;
+    color: #757575;
+    font-weight: 400;
+}
+
+.line{
+    background-color: var(--divider-line);
+    height: 1px;
+    width: 100%;
+}
+
+.windowIcon{
+    width: 12px;
+    height: 12px;
+    margin-left: 9px; 
+}
+
+@media(max-width: 535px){
+    .source{
+        flex-direction: column;
+        gap: 8px;
+    }
+    .source_Link{
+        align-self: flex-start;
+    }
+}
