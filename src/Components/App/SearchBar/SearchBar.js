@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef, memo } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect, useRef, memo, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import searchIcon from "./Icons/icon-search.svg";
 import "./styles.css";
 import MakeAsyncCall from "./MakeAsyncCall";
@@ -8,6 +8,7 @@ const SearchBar = () => {
   const invalidMessage = useRef();
   const searchBar = useRef();
   const dispatch = useDispatch();
+  const selector = useSelector((state) => state.word);
 
   /**
    * The handleChange function updates the search bar input value and displays an invalid message if
@@ -23,6 +24,15 @@ const SearchBar = () => {
     setWord(event.target.value);
   };
 
+  const handleOnSearch = useCallback(() => {
+    if (word.trim()) {
+      dispatch(MakeAsyncCall(word)); // using Thunk middleware for api calls
+    } else {
+      searchBar.current.setCustomValidity("error");
+      invalidMessage.current.style.display = "block";
+    }
+  }, [word, dispatch]);
+
   /* This `useEffect` hook in the `SearchBar` component is responsible for listening to keyboard events
 and triggering an action when the Enter key is pressed. Here's a breakdown of what it does: */
   useEffect(() => {
@@ -32,12 +42,7 @@ and triggering an action when the Enter key is pressed. Here's a breakdown of wh
         return;
       }
 
-      if (word.trim()) {
-        dispatch(MakeAsyncCall(word)); // using Thunk middleware for api calls
-      } else {
-        searchBar.current.setCustomValidity("error");
-        invalidMessage.current.style.display = "block";
-      }
+      handleOnSearch();
     };
 
     document.addEventListener("keydown", keyboardPress);
@@ -45,7 +50,7 @@ and triggering an action when the Enter key is pressed. Here's a breakdown of wh
     return () => {
       document.removeEventListener("keydown", keyboardPress);
     };
-  }, [word, dispatch]);
+  }, [handleOnSearch]);
 
   return (
     <section className="wrapper">
@@ -53,7 +58,7 @@ and triggering an action when the Enter key is pressed. Here's a breakdown of wh
       <p ref={invalidMessage} className="invalidMessage">
         Sorry,This field can't be empty...
       </p>
-      <img src={searchIcon} className="searchIcon" alt="search-icon" loading="lazy" />
+      <img src={searchIcon} className="searchIcon" alt="search-icon" loading="lazy" onClick={handleOnSearch} />
     </section>
   );
 };
