@@ -40,6 +40,7 @@ npm start
 4. Light and dark themes.
 5. Font customization options.
 
+
 ## Project Structure
 
 ```
