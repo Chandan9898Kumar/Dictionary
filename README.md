@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+# Dictionary App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a dictionary app built with React. It allows users to search for words and get their definitions, phonetics, parts of speech, and synonyms. The app also supports offline usage with a service worker.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Available Scripts](#available-scripts)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone the repository:
+```sh
+   git clone https://github.com/your-username/dictionary.git
+   cd dictionary
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Install the dependencies
 
-### `npm test`
+```sh
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`Usage`
+Start the development server:
 
-### `npm run build`
+```sh
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`Features`
+1. Search for word definitions, phonetics, parts of speech.
+2. synonyms.
+3. Offline support with a service worker.
+4. Light and dark themes.
+5. Font customization options.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+.env
+.gitignore
+.npmrc
+.prettierignore
+.prettierrc
+build/
+public/
+  ServiceWorker.js
+README.md
+src/
+  Components/
+    App/
+      Container/
+        Content/
+          Definitions/
+            Header/
+              Header.js
+              styles.css
+            PartsOfSpeech/
+              PartsOfSpeech.js
+              styles.css
+            Source/
+              Source.js
+              styles.css
+            Definitions.js
+            styles.css
+          Message/
+            Message.js
+            styles.css
+          Content.js
+          styles.css
+        LoadingScreen/
+          LoadingScreen.js
+          styles.css
+        Container.js
+        styles.css
+      NavigationBar/
+        FontOptions/
+          FontOptions.js
+          styles.css
+        LightSwitch/
+          ChangeTheme/
+            ChangeTheme.js
+          LightSwitch.js
+          styles.css
+        Icons/
+          index.js
+        NavigationBar.js
+        styles.css
+      SearchBar/
+        MakeAsyncCall/
+          MakeAsyncCall.js
+        SearchBar.js
+        styles.css
+      App.js
+      styles.css
+    FontFiles/
+      Inter-VariableFont_slnt,wght.ttf
+      Inconsolata-VariableFont_wdth,wght.ttf
+      Inter-Bold.ttf
+      Inter-Regular.ttf
+      Lora-VariableFont_wght.ttf
+      Lora-Italic-VariableFont_wght.ttf
+    Store/
+      Reducer/
+        Reducer.js
+        index.js
+      Store.js
+    App.test.js
+    index.js
+    reportWebVitals.js
+    setupTests.js
+webpack.config.js
+package.json
+```
